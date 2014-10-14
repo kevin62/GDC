@@ -1,5 +1,3 @@
-
-
 #droit {
 	float: right;
 	width: auto;
@@ -10,18 +8,108 @@
 	overflow: hidden; /* tient compte du flottant */
 }
 
-body { background-color: #000000;
+body { 
  font-family: Verdana, Geneva, Arial; 
 font-size : 12px; 
 }
 
-a:visited 
-{color : black} 
-
-a:link
-{color : black}
-
 #login {
     margin: 7em auto;
     width: 320px;
+}
+
+.CMDTABLE {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:14px;
+	-webkit-border-bottom-left-radius:14px;
+	border-bottom-left-radius:14px;
+	
+	-moz-border-radius-bottomright:14px;
+	-webkit-border-bottom-right-radius:14px;
+	border-bottom-right-radius:14px;
+	
+	-moz-border-radius-topright:14px;
+	-webkit-border-top-right-radius:14px;
+	border-top-right-radius:14px;
+	
+	-moz-border-radius-topleft:14px;
+	-webkit-border-top-left-radius:14px;
+	border-top-left-radius:14px;
+}.CMDTABLE table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CMDTABLE tr:last-child td:last-child {
+	-moz-border-radius-bottomright:14px;
+	-webkit-border-bottom-right-radius:14px;
+	border-bottom-right-radius:14px;
+}
+.CMDTABLE table tr:first-child td:first-child {
+	-moz-border-radius-topleft:14px;
+	-webkit-border-top-left-radius:14px;
+	border-top-left-radius:14px;
+}
+.CMDTABLE table tr:first-child td:last-child {
+	-moz-border-radius-topright:14px;
+	-webkit-border-top-right-radius:14px;
+	border-top-right-radius:14px;
+}.CMDTABLE tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:14px;
+	-webkit-border-bottom-left-radius:14px;
+	border-bottom-left-radius:14px;
+}.CMDTABLE tr:hover td{
+	
+}
+.CMDTABLE tr:nth-child(odd){ background-color:#8fc6fc; }
+.CMDTABLE tr:nth-child(even)    { background-color:#ffffff; }.CMDTABLE td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:16px;
+	font-size:20px;
+	font-family:Georgia;
+	font-weight:normal;
+	color:#000000;
+}.CMDTABLE tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CMDTABLE tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CMDTABLE tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CMDTABLE tr:first-child td{
+		background:-o-linear-gradient(bottom, #ffffff 5%, #046fd3 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #046fd3) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #046fd3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#046fd3");	background: -o-linear-gradient(top,#ffffff,046fd3);
+
+	background-color:#ffffff;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:21px;
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	color:#ffffff;
+}
+.CMDTABLE tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #ffffff 5%, #046fd3 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #046fd3) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #046fd3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#046fd3");	background: -o-linear-gradient(top,#ffffff,046fd3);
+
+	background-color:#ffffff;
+}
+.CMDTABLE tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CMDTABLE tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
 }
