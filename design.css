@@ -1,0 +1,27 @@
+
+
+#droit {
+	float: right;
+	width: auto;
+}
+
+#gauche {
+	width: auto; /* prend toute la largeur disponible */
+	overflow: hidden; /* tient compte du flottant */
+}
+
+body { background-color: #000000;
+ font-family: Verdana, Geneva, Arial; 
+font-size : 12px; 
+}
+
+a:visited 
+{color : black} 
+
+a:link
+{color : black}
+
+#login {
+    margin: 7em auto;
+    width: 320px;
+}
