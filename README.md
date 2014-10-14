@@ -1,4 +1,0 @@
-GDC
-===
-
-Gestion de commandes
