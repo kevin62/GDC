@@ -1,7 +1,5 @@
 <?php
 
-
-require_once "./utils/enTete.html";
 require_once "./utils/connexion.php"; 
 require_once "./Fonction/connectionverif.php";
 require_once "./Fonction/connecte.php";
