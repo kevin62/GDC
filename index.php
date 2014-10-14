@@ -23,6 +23,11 @@
 		echo ("<a href='index.php?vue=vue_inscript.php'><img src='./images/Administration.png' </a> " ) ;
 		echo "</center> ";
 	}
+	
+	echo "<a href='index.php?vue=view_addOrModifyCommand.php'>Ajouter une commande</a> " ;
+	//$id_commande à affecter !
+	$id_commande = 1;
+	echo "<a href='index.php?vue=view_addOrModifyCommand.php&id_commande=$id_commande'>Modifier la commande $id_commande</a> " ;
 
 	include "./utils/piedPage.php";
 ?>
