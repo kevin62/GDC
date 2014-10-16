@@ -27,7 +27,7 @@ if(isset($_POST["envoie"]))
 else
 {
 	
-	echo "<table border=2>
+	echo "<center><table border=2>
 	<td><form action='index.php?vue=View_addOrModifyCommand.php";
 	
 	if($id_commande != 0)
@@ -39,8 +39,8 @@ else
 	
 	echo "' enctype='multipart/form-data' method='POST' >";
 	
-	echo "<p>
-			<label>Libellé de la commande :<br>
+	echo "<p><b><center><font face='Helvetica' color='green'>
+			<label>Libelle de la commande :<br>
 			<input type='text' size='20' name='libelle'";
 			
 	if(!empty($commandeEnCours)) echo "value='" . $commandeEnCours[0]["libelle"] . "'";
@@ -48,7 +48,7 @@ else
 	echo "></label>
 		</p>
 		<p>
-			<label>Date de début (format attendu AAAAMMJJ) :<br>
+			<label>Date de debut (format attendu AAAAMMJJ) :<br>
 			<input type='text' size='20' name='dateDebut'";
 			
 	if(!empty($commandeEnCours))  echo "value='" . $commandeEnCours[0]["dateDebut"] . "'";
@@ -84,7 +84,7 @@ else
 
 	echo "</select></label>
 		</p>
-	<input type='submit' name='envoie'/></td></table>
+	<input type='submit' name='envoie'/></td></table><br>
 
 
 	</form>";
