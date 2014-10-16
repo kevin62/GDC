@@ -1,9 +1,11 @@
 <?php 
 
-Class Statut {
+class Statut {
 
-	private $AllStatutsQuery ;
-	Private $AllStatuts ;
+	private $allStatutsQuery ;
+	private $allStatuts ;
+	private $statutByIdQuery;
+	private $statutById;
 	/*Private $intermediaire ;
 	Private $AjouterUnGroupe ;
 	Private $SuppUnGroupe;
@@ -11,9 +13,10 @@ Class Statut {
 	Private $Modifimage;*/
 	
 	
-	Public Function __construct($connexion) 
+	public function __construct($connexion) 
 	{	
-		$this->AllStatutsQuery=$connexion->prepare("SELECT * FROM statut ;");
+		$this->allStatutsQuery=$connexion->prepare("SELECT * FROM statut ;");
+		$this->statutByIdQuery=$connexion->prepare("SELECT * FROM statut where id_statut=:id_statut;");
 		/*$this->intermediaire=$connexion->prepare("SELECT * FROM Groupe where NomG = :Nomg ;");
 		$this->AjouterUnGroupe=$connexion->prepare("insert into Groupe(NomG) values(:NomG)");
 		$this->SuppUnGroupe=$connexion->prepare("Delete from Groupe where NumGrp= :NomG ");
@@ -21,11 +24,18 @@ Class Statut {
 		$this->Modifimage=$connexion->prepare("update Groupe set NomI = :NomI where NumGrp = :NumGrp ");*/
 	}
 	
-	Public Function AllStatuts () 
+	public function allStatuts() 
 	{
-		$this->AllStatuts = $this->AllStatutsQuery->execute();
-		$this->AllStatuts = $this->AllStatutsQuery->fetchAll(PDO::FETCH_ASSOC);
-		return $this->AllStatuts;
+		$this->allStatuts = $this->allStatutsQuery->execute();
+		$this->allStatuts = $this->allStatutsQuery->fetchAll(PDO::FETCH_ASSOC);
+		return $this->allStatuts;
+	}
+	
+	public function statutById($id_statut) 
+	{
+		$this->statutById = $this->statutByIdQuery->execute(array(':id_statut' => $id_statut));
+		$this->statutById = $this->statutByIdQuery->fetchAll(PDO::FETCH_ASSOC);
+		return $this->statutById;
 	}
 
 		/*Public Function intermediaire($P)

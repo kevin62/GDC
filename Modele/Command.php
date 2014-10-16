@@ -7,12 +7,14 @@ class Command {
 	private $modifyCommand; 
 	private $addCommand;
 	private $deleteCommand;
-	
+	private $commandByIdQuery;
+	private $commandById;
 	
 	public function __construct($connexion) 
 	{	
 		$this->allCommandsQuery=$connexion->prepare("SELECT * FROM commande ;");
-		$this->deleteCommand = $connexion->prepare("Delete from commande where id_commande = :id ;");
+		$this->commandByIdQuery=$connexion->prepare("SELECT * FROM commande where id_commande=:id_commande;");
+		$this->deleteCommand = $connexion->prepare("Delete from commande where id_commande = :id_commande ;");
 		$this->modifyCommand=$connexion->prepare("update commande set libelle = :libelle, dateDebut =:dateDebut, dateFin = :dateFin, id_statut = :id_statut, nomPersonne = :nomPersonne where id_commande = :id_commande ");
 		$this->addCommand=$connexion->prepare("insert into commande(libelle, dateDebut, dateFin, id_statut, nomPersonne) values(:libelle, :dateDebut, :dateFin, :id_statut, :nomPersonne)");
 		/*$this->intermediaire=$connexion->prepare("SELECT * FROM commande where NomG = :Nomg ;");
@@ -29,6 +31,13 @@ class Command {
 		return $this->allCommands;
 	}
 	
+	public function commandById($id_commande)
+	{
+		$this->commandById = $this->commandByIdQuery->execute(array(':id_commande' => $id_commande));
+		$this->commandById = $this->commandByIdQuery->fetchAll(PDO::FETCH_ASSOC);
+		return $this->commandById;
+	}
+	
 	public function modifyCommand($id_commande, $libelle, $dateDebut, $dateFin, $id_statut, $nomPersonne)
 	{	
 		$this->modifyCommand->execute(array(':id_commande' =>$id_commande, ':libelle'=>$libelle, ':dateDebut'=>$dateDebut, ':dateFin'=>$dateFin, ':id_statut'=>$id_statut , ':nomPersonne'=>$nomPersonne));
@@ -42,9 +51,9 @@ class Command {
 		return $this->addCommand->rowCount();
 	}
 	
-	public Function deleteCommand($id)
+	public Function deleteCommand($id_commande)
 	{
-		$this->deleteCommand->execute(Array(':id' => $id));
+		$this->deleteCommand->execute(Array(':id_commande' => $id_commande));
 		return  $this->deleteCommand->rowCount();
 	}
 /*

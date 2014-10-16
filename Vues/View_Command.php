@@ -55,7 +55,7 @@ $droit = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
 					</td>";
 					
 		if($droit)
-				echo "<td> </td><td> </td><td> </td>";
+				echo "<td>  </td><td> </td>";
 			
 				echo "</tr>";
 	
@@ -83,26 +83,30 @@ $droit = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
 		echo"	</td><td>";
 		echo $tableCmd[3][$i];
 		echo"	</td><td>";
-		echo $tableCmd[4][$i] ;
+		
+		$statut = new Statut($connexion);
+		$statutDeLaCommandeEnCours = $statut->statutById($tableCmd[4][$i]);
+		echo $statutDeLaCommandeEnCours[0]["libelle"] ;
+		
 		echo"	</td><td>"; 
 		echo $tableCmd[5][$i];
 		echo"</td>";
 		
 		if($droit)
 		{
-		  echo "<td> <a href='index.php?vue=View_Command.php'> Add </a></td>";
-		   echo "<td> <a href='index.php?vue=View_Command.php'> Modify </a></td>";
+		
+		   echo "<td> <a href='index.php?vue=View_addOrModifyCommand.php&id_commande=" . $tableCmd[0][$i] . "'> Modifier </a></td>";
 		  echo "<td> <a href='index.php?vue=View_Command.php&Del=".$tableCmd[0][$i]."'> Delete </a></td>"; 
 		}
 		echo "</tr>";
 	}
 	
 	
-	
-	
 		echo"
 			</table>
 		</div>
+		
+		<a href='index.php?vue=View_addOrModifyCommand.php'> Ajouter une commande </a></br>
 		
 	</body>
 	
