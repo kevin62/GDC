@@ -26,8 +26,7 @@ if(isset($_POST["envoie"]))
 }
 else
 {
-	$commandeEnCours;
-
+	
 	echo "<table border=2>
 	<td><form action='index.php?vue=View_addOrModifyCommand.php";
 	
@@ -44,7 +43,7 @@ else
 			<label>Libellé de la commande :<br>
 			<input type='text' size='20' name='libelle'";
 			
-	if($commandeEnCours != null) echo "value='" . $commandeEnCours[0]["libelle"] . "'";
+	if(!empty($commandeEnCours)) echo "value='" . $commandeEnCours[0]["libelle"] . "'";
 			
 	echo "></label>
 		</p>
@@ -52,7 +51,7 @@ else
 			<label>Date de début (format attendu AAAAMMJJ) :<br>
 			<input type='text' size='20' name='dateDebut'";
 			
-	if($commandeEnCours != null) echo "value='" . $commandeEnCours[0]["dateDebut"] . "'";
+	if(!empty($commandeEnCours))  echo "value='" . $commandeEnCours[0]["dateDebut"] . "'";
 			
 	echo "></label>
 		</p>
@@ -60,7 +59,7 @@ else
 			<label>Date de fin (format attendu AAAAMMJJ) :<br>
 			<input type='text' size='20' name='dateFin'";
 			
-	if($commandeEnCours != null) echo "value='" . $commandeEnCours[0]["dateFin"] . "'";
+	if(!empty($commandeEnCours))  echo "value='" . $commandeEnCours[0]["dateFin"] . "'";
 			
 	echo "></label>
 		</p>
@@ -78,7 +77,7 @@ else
 		
 		echo "<option value='" . $id_statut . "'";
 		
-		if($commandeEnCours != null) if($commandeEnCours[0]["id_statut"] == $id_statut) echo "selected='selected'";
+		if(!empty($commandeEnCours)) if($commandeEnCours[0]["id_statut"] == $id_statut) echo "selected='selected'";
 		
 		echo ">" . $libelle . "</option>";
 	}

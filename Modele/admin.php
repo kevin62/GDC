@@ -22,7 +22,7 @@ class admin{
 		
 		$this->Modifcompte= $connexion->prepare("update utilisateur set pwd=:passeword,niveau=:Level,Avatar=:Avatar where login=:log");
 		$this->AdminNormal= $connexion->prepare("SELECT * from utilisateur  where niveau !=4 and niveau!=3;");
-		$this->AdminSupreme= $connexion->prepare("SELECT * from utilisateur  where niveau !=4");
+		$this->AdminSupreme= $connexion->prepare("SELECT * from utilisateur");
 		$this->suppCompte = $connexion->prepare("Delete from utilisateur where login=:log ");
 		$this->verif = $connexion->prepare("select * from utilisateur where login=:logiin  ; ");
 		$this->pass = $connexion->prepare("select * from utilisateur where login=:logiin  ; ");
