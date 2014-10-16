@@ -8,12 +8,20 @@ if(isset($_POST["envoie"]))
 	$libelle = $_POST["libelle"];
 	$dateDebut = $_POST["dateDebut"];
 	$dateFin = $_POST["dateFin"];
-	$id_statut = $_POST["id_statut"];
+	if(isset($_POST["id_statut"])) $id_statut = $_POST["id_statut"];
+	else $id_statut = 1;
 	$nomPersonne = $_SESSION["Loglogin"];
 	
 	if($id_commande != 0) //modification
 	{	
 		$command = new Command($connexion);
+		
+		if($_SESSION["Niveau"] <= 2)
+		{
+			$command2 = $command->commandById($id_commande);
+			$id_statut = $command2[0]["id_statut"];
+		}
+		
 		$modifyCommand = $command->modifyCommand($id_commande, $libelle, $dateDebut, $dateFin, $id_statut, $nomPersonne);
 		header("Location : index.php?vue=View_Command.php");
 	}
@@ -26,8 +34,9 @@ if(isset($_POST["envoie"]))
 }
 else
 {
-	
-	echo "<center><table border=2>
+	$commandeEnCours;
+
+	echo "<table border=2>
 	<td><form action='index.php?vue=View_addOrModifyCommand.php";
 	
 	if($id_commande != 0)
@@ -39,8 +48,8 @@ else
 	
 	echo "' enctype='multipart/form-data' method='POST' >";
 	
-	echo "<p><b><center><font face='Helvetica' color='green'>
-			<label>Libelle de la commande :<br>
+	echo "<p>
+			<label>Libellé de la commande :<br>
 			<input type='text' size='20' name='libelle'";
 			
 	if(!empty($commandeEnCours)) echo "value='" . $commandeEnCours[0]["libelle"] . "'";
@@ -48,45 +57,52 @@ else
 	echo "></label>
 		</p>
 		<p>
-			<label>Date de debut (format attendu AAAAMMJJ) :<br>
-			<input type='text' size='20' name='dateDebut'";
+			<label>Date de début (format attendu AAAAMMJJ) :<br>
+			<input type='text' size='20' maxlength='8' name='dateDebut'";
 			
-	if(!empty($commandeEnCours))  echo "value='" . $commandeEnCours[0]["dateDebut"] . "'";
+	if(!empty($commandeEnCours)) echo "value='" . $commandeEnCours[0]["dateDebut"] . "'";
 			
 	echo "></label>
 		</p>
 		<p>
 			<label>Date de fin (format attendu AAAAMMJJ) :<br>
-			<input type='text' size='20' name='dateFin'";
+			<input type='text' size='20' maxlength='8' name='dateFin'";
 			
-	if(!empty($commandeEnCours))  echo "value='" . $commandeEnCours[0]["dateFin"] . "'";
+	if(!empty($commandeEnCours)) echo "value='" . $commandeEnCours[0]["dateFin"] . "'";
 			
 	echo "></label>
-		</p>
-		<p>
+		</p>";
+		
+	$droitDeModifierStatut = false;
+	
+	if($_SESSION["Niveau"] > 2) $droitDeModifierStatut = true;	
+	
+	if($droitDeModifierStatut)
+	{
+		echo"<p>
 			<label>Statut :<br>
 			<select name='id_statut'>";
 			
-	$statut = new Statut($connexion);
-	$allStatuts = $statut->allStatuts();
-
-	for($i = 0; $i < count($allStatuts); $i++)
-	{ 		
-		$id_statut = $allStatuts[$i]["id_statut"];
-		$libelle = $allStatuts[$i]["libelle"];
+		$statut = new Statut($connexion);
+		$allStatuts = $statut->allStatuts();
+	
+		for($i = 0; $i < count($allStatuts); $i++)
+		{ 		
+			$id_statut = $allStatuts[$i]["id_statut"];
+			$libelle = $allStatuts[$i]["libelle"];
+			
+			echo "<option value='" . $id_statut . "'";
+			
+			if(!empty($commandeEnCours)) if($commandeEnCours[0]["id_statut"] == $id_statut) echo " selected='selected' ";
+			
+			echo ">" . $libelle . "</option>";
+		}
 		
-		echo "<option value='" . $id_statut . "'";
-		
-		if(!empty($commandeEnCours)) if($commandeEnCours[0]["id_statut"] == $id_statut) echo "selected='selected'";
-		
-		echo ">" . $libelle . "</option>";
+		echo "</select></label>
+			</p>";
 	}
-
-	echo "</select></label>
-		</p>
-	<input type='submit' name='envoie'/></td></table><br>
-
-
+		
+	echo "<input type='submit' name='envoie'/></td></table>
 	</form>";
 }
 
