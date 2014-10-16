@@ -29,9 +29,9 @@
 
 		<div id='Oops'>
 		<font color=#ffffff> si tu n'es pas encore inscris ce n'est pas la que tu dois etre!! regarde ici =><a href='index.php?vue=vue_inscript.php'><font color=#ff0000>  INSCRIPTION </font></a>
-		sinon tu peux toujours retourner sur l'acceuil ici => <a href='index.php'><font color=#ff0000> ACCUEIL</font></a></font>
+		Oublie de mot de passe => <a href='index.php?vue=View_forgotPwd.php'><font color=#ff0000> Oublie</font></a></font>
 		</div>
-
+			
 		</html> " ;
 		}
 ?>

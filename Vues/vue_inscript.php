@@ -31,11 +31,11 @@ if (is_uploaded_file($_FILES["monFichier"]["tmp_name"])){
 		
 	$res = $gg->ajouterUtilisateur($_login, encrypt_decrypt("encrypt",$pwd), $image );
 	
-//echo "
-//<script> 
-//alert ('Votre compte va etre enregistré');
-//window.location.replace('index.php?vue=vue_connexion.php');
-//</script>";
+echo "
+<script> 
+alert ('Votre compte va etre enregistré');
+window.location.replace('index.php?vue=vue_connexion.php');
+</script>";
 
 
 }
