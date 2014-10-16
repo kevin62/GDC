@@ -24,7 +24,7 @@ if (is_uploaded_file($_FILES["monFichier"]["tmp_name"])){
 	else $image= "avatar" ;
 	$gg = new admin($connexion);
 	$pwd = $_POST["ppwd"];	
-	$res = $gg->ajouterUtilisateur($_login, $pwd, $image );
+	$res = $gg->ajouterUtilisateur($_login, md5($pwd), $image );
 	
 echo "
 <script> 

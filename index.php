@@ -6,28 +6,27 @@
 	{
 		$l=$_POST["log"];
 		$m=$_POST["pwd"];
-		Connexion($connexion,$l,$m);
+		Connexion($connexion,$l,md5($m));
 	}
 
 	if (isset($_GET["vue"]))
 	{
 		$v_vue = $_GET["vue"]; 
 		require_once "./Vues/$v_vue";
+		echo ("<a href='index.php'>Accueil</a> " ) ;
 	}	
-
 	else
 	{  
 		echo " <center><br><br>";
-		echo ("<a href='index.php?vue=vue_connexion.php'><img src='./images/Connexion.png'  </a> " ) ;
-		echo ("<a href='index.php?vue=vue_connexion.php'><img src='./images/Commandes.png'  </a> " ) ;
-		echo ("<a href='index.php?vue=vue_inscript.php'><img src='./images/Administration.png' </a> " ) ;
+		if(!isset($_SESSION["Loglogin"]))
+		echo ("<a href='index.php?vue=vue_connexion.php'>Connexion  </a> " ) ;
+		echo ("<a href='index.php?vue=View_Command.php'>commande </a> " ) ;
+		if(isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2)
+		echo ("<a href='index.php?vue=vue_Membre.php'>administration</a> " ) ;
 		echo "</center> ";
 	}
-	
-	echo "<a href='index.php?vue=view_addOrModifyCommand.php'>Ajouter une commande</a> " ;
-	//$id_commande à affecter !
-	$id_commande = 1;
-	echo "<a href='index.php?vue=view_addOrModifyCommand.php&id_commande=$id_commande'>Modifier la commande $id_commande</a> " ;
 
+	
+	
 	include "./utils/piedPage.php";
 ?>

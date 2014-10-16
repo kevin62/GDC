@@ -2,7 +2,7 @@
 
 	try
 	{
-		$connexion = new PDO('mysql:host=localhost;dbname=site','root','');
+		$connexion = new PDO('mysql:host=localhost;dbname=gestioncommandes','root','');
 	}
 	// host désigne la machine sur laquelle tourne mysql
 	// root désigne le "user"

@@ -20,16 +20,16 @@ class admin{
 	public function __construct($connexion){
 		
 		
-		$this->Modifcompte= $connexion->prepare("update Logiin set passW=:passeword,niveau=:Level,Avatar=:Avatar where LoginSite=:log");
-		$this->AdminNormal= $connexion->prepare("SELECT * from Logiin  where niveau !=4 and niveau!=3;");
-		$this->AdminSupreme= $connexion->prepare("SELECT * from Logiin  where niveau !=4");
-		$this->suppCompte = $connexion->prepare("Delete from Logiin where LoginSite=:log ");
-		$this->verif = $connexion->prepare("select * from Logiin where LoginSite=:logiin  ; ");
-		$this->pass = $connexion->prepare("select * from Logiin where LoginSite=:logiin  ; ");
-		$this->changermdp = $connexion->prepare("update Logiin set passW= :Mdp where LoginSite= :logiin ;");
-		$this->connexionLog_req = $connexion->prepare("select * from Logiin where LoginSite=:login and passW=:mdp ; ");
-		$this->connexionLg_req = $connexion->prepare("select * from Logiin where LoginSite=:login and passW=:mdp ; ");
-		$this->ajouterUtilisateur = $connexion->prepare("insert into  LoGiin(LoginSite,passW,Avatar) values (:log,:pass,:avatar); ");
+		$this->Modifcompte= $connexion->prepare("update utilisateur set pwd=:passeword,niveau=:Level,Avatar=:Avatar where login=:log");
+		$this->AdminNormal= $connexion->prepare("SELECT * from utilisateur  where niveau !=4 and niveau!=3;");
+		$this->AdminSupreme= $connexion->prepare("SELECT * from utilisateur  where niveau !=4");
+		$this->suppCompte = $connexion->prepare("Delete from utilisateur where login=:log ");
+		$this->verif = $connexion->prepare("select * from utilisateur where login=:logiin  ; ");
+		$this->pass = $connexion->prepare("select * from utilisateur where login=:logiin  ; ");
+		$this->changermdp = $connexion->prepare("update utilisateur set pwd= :Mdp where login= :logiin ;");
+		$this->connexionLog_req = $connexion->prepare("select * from utilisateur where login=:login and pwd=:mdp ; ");
+		$this->connexionLg_req = $connexion->prepare("select * from utilisateur where login=:login and pwd=:mdp ; ");
+		$this->ajouterUtilisateur = $connexion->prepare("insert into  utilisateur(login,pwd,Avatar) values (:log,:pass,:avatar); ");
 		
 	}
 	

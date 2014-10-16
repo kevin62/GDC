@@ -18,19 +18,19 @@ if(isset($_SESSION))
 						if ($nomdelavue!="vue_profil.php")
 							{
 						echo "<table><td><img src='./Images/$photo.jpg' width=100 height =75 />
-						<td> <font color=#ffffff>$nom</font><br> <br>";
+						<td> <font color=#0000ff>$nom</font><br> <br>";
 
 							if ($_SESSION["Niveau"]==3)
 								{
-								echo "<font color=#ffffff>vous etes un administrateur </font>";
+								echo "<font color=#0000ff>vous etes un administrateur </font>";
 								}
 							else if ($_SESSION["Niveau"]==4)
 								{
-								echo "<font color=#ffffff> vous etes super admin</font> "; 
+								echo "<font color=#0000ff> vous etes super admin</font> "; 
 								}
 							else 
 								{
-								echo "<font color=#ffffff>vous etes invité !</font> " ;
+								echo "<font color=#0000ff>vous etes invité !</font> " ;
 								}
 						
 							echo "<br><a href='index.php?vue=vue_deco.php' /><font color=#0000ff>deconnexion</font></a>";
