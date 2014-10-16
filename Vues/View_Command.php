@@ -3,7 +3,8 @@
 
 $command = new Command($connexion);
 
-$droit = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
+$droitModifierEtSupprimer = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
+$droitModifier = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"] <= 2 );
 
   if(isset($_GET['Del']) and (!empty($_GET["Del"])) )
  { 	 
@@ -54,8 +55,9 @@ $droit = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
 						UTILISATEUR
 					</td>";
 					
-		if($droit)
-				echo "<td>  </td><td> </td>";
+		if($droitModifier)
+				echo "<td></td>";
+		else if($droitModifierEtSupprimer) echo "<td></td><td> </td>";
 			
 				echo "</tr>";
 	
@@ -92,12 +94,13 @@ $droit = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"]>2 );
 		echo $tableCmd[5][$i];
 		echo"</td>";
 		
-		if($droit)
+		if($droitModifierEtSupprimer)
 		{
 		
 		   echo "<td> <a href='index.php?vue=View_addOrModifyCommand.php&id_commande=" . $tableCmd[0][$i] . "'> Modifier </a></td>";
 		  echo "<td> <a href='index.php?vue=View_Command.php&Del=".$tableCmd[0][$i]."'> Delete </a></td>"; 
 		}
+		else if ($droitModifier) echo "<td> <a href='index.php?vue=View_addOrModifyCommand.php&id_commande=" . $tableCmd[0][$i] . "'> Modifier </a></td>";
 		echo "</tr>";
 	}
 	
