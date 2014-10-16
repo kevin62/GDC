@@ -6,9 +6,9 @@
 	{
 		$l=$_POST["log"];
 		$m=$_POST["pwd"];
-		Connexion($connexion,$l,md5($m));
-	}
 
+		Connexion($connexion,$l,encrypt_decrypt("encrypt",$m));
+	}
 	if (isset($_GET["vue"]))
 	{
 		$v_vue = $_GET["vue"]; 

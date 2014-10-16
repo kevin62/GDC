@@ -28,8 +28,17 @@
 		
 		<br>
 		<div id='Oops'>
+<<<<<<< HEAD
 			<a href='index.php?vue=vue_inscript.php'> INSCRIPTION </font></a>
 		</div>
 		</center>" ;
 	}
+=======
+		<font color=#ffffff> si tu n'es pas encore inscris ce n'est pas la que tu dois etre!! regarde ici =><a href='index.php?vue=vue_inscript.php'><font color=#ff0000>  INSCRIPTION </font></a>
+		Oublie de mot de passe => <a href='index.php?vue=View_forgotPwd.php'><font color=#ff0000> Oublie</font></a></font>
+		</div>
+			
+		</html> " ;
+		}
+>>>>>>> features/connexionetGDC
 ?>
