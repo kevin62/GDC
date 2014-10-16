@@ -87,7 +87,7 @@ include "./utils/entete.html";
                 
                     <div class="panel" id="home">
                         <h1>Gestion de commande</h1>    
-                        <div class="image_wrapper image_fl"><img src="images/templatemo_image_01.jpg" alt="image" /></div>
+                        <div class="image_wrapper image_fl"><img src="images/gallery/image_01.jpg" alt="image" /></div>
                         <p><em>Une application au service des societés </a>.</em></p>
                         <p></p>
                       <div class="cleaner_h40"></div>
@@ -108,7 +108,7 @@ include "./utils/entete.html";
         
         <div id="templatemo_footer">
 
-            Copyright © 2048 <a href="#">Your Company Name</a> | <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+            Copyright © 2014 <a href="#">EPSI</a> | <a href="#" target="_parent"GDC</a> by <a href="#" target="_parent">EPSI STUDENTS</a>
         
         </div> <!-- end of templatemo_footer -->
     

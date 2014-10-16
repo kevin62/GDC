@@ -1,6 +1,6 @@
 #droit {
-	float: right;
-	width: auto;
+	margin-right : 10px;
+	width : 250px;
 }
 
 #gauche {

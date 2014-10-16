@@ -31,11 +31,11 @@
 		<br>
 		<div id='Oops'>
 			<a href='index.php?vue=vue_inscript.php'> INSCRIPTION </font></a>
+			<br>
+			<a href='index.php?vue=View_forgotPwd.php'> OUBLIE </font></a>
 		</div>
-		</center>" ;
+		</center>
 	
-	echo"
-		Oublie de mot de passe => <a href='index.php?vue=View_forgotPwd.php'><font color=#ff0000> Oublie</font></a></font>
 		</div>
 			
 		</html> " ;

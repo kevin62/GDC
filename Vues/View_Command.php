@@ -108,8 +108,9 @@ $droitModifier = (isset($_SESSION["Niveau"]) && $_SESSION["Niveau"] <= 2 );
 		echo"
 			</table>
 		</div>
-		
-		<a href='index.php?vue=View_addOrModifyCommand.php'> Ajouter une commande </a></br>
+		";
+		if(isset($_SESSION["Niveau"]))
+			echo "<a href='index.php?vue=View_addOrModifyCommand.php'> Ajouter une commande </a></br>
 		
 	</body>
 	
