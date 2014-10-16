@@ -13,7 +13,7 @@
 	{
 		$v_vue = $_GET["vue"]; 
 		require_once "./Vues/$v_vue";
-		echo ("<a href='index.php'>Accueil</a> " ) ;
+		echo ("<center><a href='index.php'>ACCUEIL</a></center>	 " ) ;
 	}	
 	else
 	{  
