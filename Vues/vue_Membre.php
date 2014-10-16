@@ -21,7 +21,7 @@ if($_SESSION["Niveau"]==4){
 $a= new admin($connexion);
 $_vadmin=$a->AdminSupreme();
 $nb=count($_vadmin);
-echo "<br><br><h1> Les Membres : </h1><br>";
+echo "<br><br><h1> Les Membres : </h1><br><div class='member'>";
 for ($i=0;$i<$nb;$i++){
 foreach($_vadmin[$i] as $champ => $ligne){
 if ($champ=="login") $mec = $ligne ;
@@ -36,13 +36,15 @@ if ($champ=="avatar")
 echo " <font color=#ff0000>$mec($statut)</font><br>";
 echo "<a href='index.php?vue=vue_MMemb.php&compte=$mec'><font color=#000000>Modif</font></a> <a href='index.php?vue=vue_Membre.php&compte=$mec'/><font color=#000000>Supprimer</font></a><br>";
 }
-}}}
+}}
+echo "</div>";
+}
 else if ($_SESSION["Niveau"]==3){
 $mec='';
 $a= new admin($connexion);
 $_vadmin=$a->AdminNormal();
 $nb=count($_vadmin);
-echo "<br><br><font color=#ffffff><h1> Les Membres : </h1></font><br>";
+echo "<br><br><font color=#ffffff><h1> Les Membres : </h1></font><br><div class='member'>";
 for ($i=0;$i<$nb;$i++){
 foreach($_vadmin[$i] as $champ => $ligne){
 
@@ -60,6 +62,7 @@ echo " <font color=#ff0000>$mec($statut)</font><br>";
 }
 
 }}
+echo "</div>";
 }
 }
 ?>

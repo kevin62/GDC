@@ -39,7 +39,7 @@ echo "
 	<table border=2><td>
 		<table>
 			<td><center>
-				<font face='Helvetica' color='green'><b><center><form action='index.php?vue=Vue_inscript.php' enctype='multipart/form-data' method='POST' >
+				<font face='Helvetica' color='red'><b><center><form action='index.php?vue=Vue_inscript.php' enctype='multipart/form-data' method='POST' >
 				<p>
 					<label>Identifiant<br>
 					<input type='text' tabindex='10' size='20'   id='user_login' name='llog'></label>
